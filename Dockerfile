@@ -6,7 +6,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive && apt-get install git ffmpeg libsm6 libxext6  -y && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace/
-RUN echo "numpy \nopencv-python \nmatplotlib \nscikit-image \nimageio \ntorchvision \ntorchsummary \ntensorboardX \npyrealsense2 \nPillow" > requirements.txt
-RUN pip install -r requirements.txt 
-
+RUN git clone https://github.com/eshan-savla/KIidP-Gruppe-4.git && pip install -r KIidP-Gruppe-4/requirements.txt
+WORKDIR /workspace/KIidP-Gruppe-4/
 CMD [ "bash" ]
