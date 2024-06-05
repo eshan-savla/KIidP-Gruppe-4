@@ -1,3 +1,29 @@
+# Fork specific Overview:
+This fork of the original work is intended as a repository for Team 4's project in the class KI in der Produktion. 
+
+# Instructions for starting:
+1. Download and extract your chosen dataset to the folder data/
+
+2. Build the dockerfile using the following command:
+```bash
+$ /build_docker.sh
+```
+3. Start the container from the root directory of this repository:
+```bash
+$ ./start_docker.sh
+```
+4. (Optional) If using the cornell dataset and this hasn't been run before:
+```bash
+$ python -m utils.dataset_processing.generate_cornell_depth data/
+```
+
+5. To train the model:
+```bash
+$ python train_network.py --dataset <cornell or jacquard> --dataset-path data/ --description training_cornell
+```
+
+----------------------------------------------------------------------------------------------------------------------------------
+
 # Antipodal Robotic Grasping
 We present a novel generative residual convolutional neural network based model architecture which detects objects in the camera’s field of view and predicts a suitable antipodal grasp configuration for the objects in the image.
 
@@ -21,7 +47,6 @@ If you use this project in your research or wish to refer to the baseline result
   year={2020},
   pages={9626-9633},
   doi={10.1109/IROS45743.2020.9340777}}
-}
 ```
 
 ## Requirements
