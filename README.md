@@ -5,17 +5,33 @@ This fork of the original work is intended as a repository for Team 4's project 
 1. Download and extract your chosen dataset to the folder data/
 
 2. Build the dockerfile using the following command:
-```bash
-$ /build_docker.sh
-```
+
+    &emsp; Option 1
+    ```bash
+    $ /build_docker.sh
+    ```
+    
+    &emsp; Option 2 (maybe windows)
+    ```bash
+    $ docker compose build
+    ```
+
 3. Start the container from the root directory of this repository:
-```bash
-$ ./start_docker.sh
-```
-4. (Optional) If using the cornell dataset and this hasn't been run before:
-```bash
-$ python -m utils.dataset_processing.generate_cornell_depth data/
-```
+    
+    &emsp; Option 1
+    ```bash
+    $ ./start_docker.sh
+    ```
+
+    &emsp; Option 2
+    ```bash
+    $ docker compose up
+    ```
+4. (Optional) If using the cornell dataset and depth images haven't been created from pcd:
+
+  ```bash
+  $ python -m utils.dataset_processing.generate_cornell_depth data/
+  ```
 
 5. To train the model:
 ```bash

@@ -1,0 +1,21 @@
+services:
+  robotic-grasping:
+    image: robotic-grasping:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/workspace/KIidP-Gruppe-4:rw
+    privileged: true
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    shm_size: 256m
+    container_name: robotic-grasping
+    command: ["/bin/bash"]
