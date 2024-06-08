@@ -11,7 +11,7 @@ This fork of the original work is intended as a repository for Team 4's project 
     $ /build_docker.sh
     ```
     
-    &emsp; Option 2 (maybe windows)
+    &emsp; Option 2 (windows -- works (requirements: Docker Desktop installed))
     ```bash
     $ docker compose build
     ```
@@ -27,6 +27,8 @@ This fork of the original work is intended as a repository for Team 4's project 
     ```bash
     $ docker compose up
     ```
+    (better start the container on windows from the Docker Desktop GUI)
+
 4. (Optional) If using the cornell dataset and depth images haven't been created from pcd:
 
   ```bash
@@ -36,6 +38,12 @@ This fork of the original work is intended as a repository for Team 4's project 
 5. To train the model:
 ```bash
 $ python train_network.py --dataset <cornell or jacquard> --dataset-path data/ --description training_cornell
+```
+
+train the modifies model with rfb block and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------------
