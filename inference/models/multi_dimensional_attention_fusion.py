@@ -4,8 +4,8 @@ import torch.nn as nn
 class PixelAttention(nn.Module):
     def __init__(self, in_channels):
         super(PixelAttention, self).__init__()
-        # Define a 1x1 convolutional layer to generate the attention map
-        self.conv = nn.Conv2d(in_channels, in_channels, kernel_size=1)
+        # Define a 3x3 convolutional layer to generate the attention map
+        self.conv = nn.Conv2d(in_channels, in_channels, kernel_size=3)
         # Sigmoid activation function to normalize the attention map values between 0 and 1
         self.sigmoid = nn.Sigmoid()
 
@@ -49,17 +49,3 @@ class MultiDimensionalAttentionFusion(nn.Module):
         x = self.channel_attention(x)
         # Return the attention-enhanced output
         return x
-
-# Example usage:
-if __name__ == "__main__":
-    # Create a dummy input tensor with shape (batch_size, channels, height, width)
-    input_tensor = torch.randn(1, 64, 32, 32)
-    
-    # Instantiate the multi-dimensional attention fusion model
-    model = MultiDimensionalAttentionFusion(in_channels=64)
-    
-    # Perform a forward pass through the model
-    output_tensor = model(input_tensor)
-    
-    # Print the shape of the output tensor
-    print(output_tensor.shape)  # Expected: torch.Size([1, 64, 32, 32])
