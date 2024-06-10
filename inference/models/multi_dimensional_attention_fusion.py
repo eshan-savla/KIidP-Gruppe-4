@@ -5,7 +5,7 @@ class PixelAttention(nn.Module):
     def __init__(self, in_channels):
         super(PixelAttention, self).__init__()
         # Define a 3x3 convolutional layer to generate the attention map
-        self.conv = nn.Conv2d(in_channels, in_channels, kernel_size=3)
+        self.conv = nn.Conv2d(in_channels, in_channels, kernel_size=3, padding=1)
         # Sigmoid activation function to normalize the attention map values between 0 and 1
         self.sigmoid = nn.Sigmoid()
 
