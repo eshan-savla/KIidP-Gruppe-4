@@ -21,5 +21,9 @@ def get_network(network_name):
     elif network_name == 'grconvnet3_rfb':
         from .grconvnet3_rfb import GenerativeResnet
         return GenerativeResnet
+     # GR-Confnet with RFB in bottleneck and multi-directional attention fusion
+    elif network_name == 'grconvnet3_rfb_mdaf':
+        from .grconvnet3_rfb_mdaf import GenerativeResnet
+        return GenerativeResnet
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
