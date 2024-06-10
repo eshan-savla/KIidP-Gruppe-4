@@ -2,7 +2,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from inference.models.grasp_model import GraspModel, ResidualBlock
-from inference.models.rfb import ReceptiveFieldBlock
+# from inference.models.rfb import ReceptiveFieldBlock
+from inference.models.rfb_padding import ReceptiveFieldBlock
 
 ####  Added for the Multi Dimensional Attention Fusion #####
 from inference.models.multi_dimensional_attention_fusion import MultiDimensionalAttentionFusion
