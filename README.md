@@ -11,7 +11,7 @@ This fork of the original work is intended as a repository for Team 4's project 
     $ /build_docker.sh
     ```
     
-    &emsp; Option 2 (maybe windows)
+    &emsp; Option 2 (windows -- works (requirements: Docker Desktop installed))
     ```bash
     $ docker compose build
     ```
@@ -27,6 +27,8 @@ This fork of the original work is intended as a repository for Team 4's project 
     ```bash
     $ docker compose up
     ```
+    (better start the container on windows from the Docker Desktop GUI)
+
 4. (Optional) If using the cornell dataset and depth images haven't been created from pcd:
 
   ```bash
@@ -37,6 +39,31 @@ This fork of the original work is intended as a repository for Team 4's project 
 ```bash
 $ python train_network.py --dataset <cornell or jacquard> --dataset-path data/ --description training_cornell
 ```
+
+train the modifies model with rfb block and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
+```
+
+train the modified model with rfb block, multi dimensional fusion and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
+```
+
+train the modified model with rfb block, 3 RES-Blocks, 2 multi dimensional fusion and concatenation of shallow and deep features in upsampling (part of "lightweight cnn with gaussian based grasping representation for robotic grasping detection")
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_multi_lightweight --epochs 10 --description training_cornell_rfb_mdfa_multi_lightweight
+```
+
+6. View logs with tensorboard
+```
+tensorboard --logdir=logs
+```
+Then open the following url in your browser: http://localhost:6006/
+
 
 ----------------------------------------------------------------------------------------------------------------------------------
 

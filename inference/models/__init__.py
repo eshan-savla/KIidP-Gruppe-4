@@ -16,5 +16,21 @@ def get_network(network_name):
     elif network_name == 'grconvnet4':
         from .grconvnet4 import GenerativeResnet
         return GenerativeResnet
+    # GR-Confnet with RFB in bottleneck
+    # Inverted GR-ConvNet
+    elif network_name == 'grconvnet3_rfb':
+        from .grconvnet3_rfb import GenerativeResnet
+        return GenerativeResnet
+     # GR-Confnet with RFB in bottleneck and multi-directional attention fusion
+    elif network_name == 'grconvnet3_rfb_mdaf_single':
+        from .grconvnet3_rfb_mdaf_single import GenerativeResnet
+        return GenerativeResnet
+        # GR-Confnet with RFB  in bottleneck and multi-directional attention fusions including concatenation of shallow and deep features in upsampling blocks
+    elif network_name == 'grconvnet3_rfb_mdaf_multi_lightweight':
+        from .grconvnet3_rfb_mdaf_multi_lightweight import GenerativeResnet
+        return GenerativeResnet
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
+
+
+
