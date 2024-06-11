@@ -58,7 +58,13 @@ train the modified model with rfb block, 3 RES-Blocks, 2 multi dimensional fusio
 $ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_multi_lightweight --epochs 10 --description training_cornell_rfb_mdfa_multi_lightweight
 ```
 
-6. View logs with tensorboard
+train the lightweight model with ResBlocks, RFB, MDAF, MaxPool ("lightweight cnn with gaussian based grasping representation for robotic grasping detection")
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 10 --description training_cornell_lightweight
+```
+
+1. View logs with tensorboard
 ```
 tensorboard --logdir=logs
 ```

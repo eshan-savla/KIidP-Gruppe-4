@@ -29,6 +29,10 @@ def get_network(network_name):
     elif network_name == 'grconvnet3_rfb_mdaf_multi_lightweight':
         from .grconvnet3_rfb_mdaf_multi_lightweight import GenerativeResnet
         return GenerativeResnet
+        # Lightweight CNN with ResBlocks, RFB, MDAF, MaxPooling
+    elif network_name == 'lightweight':
+        from .lightweight import GenerativeResnet
+        return GenerativeResnet
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
 
