@@ -52,6 +52,13 @@ train the modified model with rfb block, multi dimensional fusion and one residu
 $ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb_mdaf --epochs 10 --description training_cornell_rfb_mdfa
 ```
 
+6. View logs with tensorboard
+```
+tensorboard --logdir=logs
+```
+Then open the following url in your browser: http://localhost:6006/
+
+
 ----------------------------------------------------------------------------------------------------------------------------------
 
 # Antipodal Robotic Grasping
