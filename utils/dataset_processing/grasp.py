@@ -116,24 +116,23 @@ class GraspRectangles:
         :return: GraspRectangles()
         """
         grs = []
-        # TODO
-        with open(fname) as f:
-            for l in f:
-                grs_array = np.load(l)
-                grs_array0 = grs_array[0]   # take only one grasp by picture
-                x = grs_array0[0]
-                y = grs_array0[1]
-                x_open = grs_array0[2]
-                y_open = grs_array0[3]
-                height = grs_array0[4]
-                score = grs_array0[5]
+        grs_array = np.load(fname)   
 
-                # transform graspnet labels into cornell and jaquard format
-                w = np.linalg.norm(np.array(x,y)- np.array(x_open, y_open))
-                theta = math.arctan2(y_open-y, x_open-x)
+        for i in range(grs_array.shape[0]):
+            grs_array0 = grs_array[0]   # take only one grasp by picture
+            x = grs_array0[0]
+            y = grs_array0[1]
+            x_open = grs_array0[2]
+            y_open = grs_array0[3]
+            height = grs_array0[4]
+            score = grs_array0[5]
 
-                # index based on row, column (y,x) angle relative to horizontal image line in radiants
-                grs.append(Grasp(np.array([y, x]), theta, w, h).as_gr)
+            # transform graspnet labels into cornell and jaquard format
+            w = np.linalg.norm(np.array(x,y)- np.array(x_open, y_open))
+            theta = math.atan2(y_open-y, x_open-x)
+
+            # index based on row, column (y,x) angle relative to horizontal image line in radiants
+            grs.append(Grasp(np.array([y, x]), theta, w, height).as_gr)
         grs = cls(grs)
         grs.scale(scale)
         return grs

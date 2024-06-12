@@ -49,6 +49,10 @@ class GraspDatasetBase(torch.utils.data.Dataset):
         raise NotImplementedError()
 
     def __getitem__(self, idx):
+       # print("Index requested:", idx)
+       # if idx >= self.length or idx < 0:
+        #    raise IndexError(f"Index {idx} is out of bounds for dataset with length {self.length}")
+
         if self.random_rotate:
             rotations = [0, np.pi / 2, 2 * np.pi / 2, 3 * np.pi / 2]
             rot = random.choice(rotations)

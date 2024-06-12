@@ -45,7 +45,7 @@ train the modifies model with rfb block and one residual block in the embedding/
 ```bash
 $ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
 ```
-
+python train_network.py --dataset graspnet --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
 train the modified model with rfb block, multi dimensional fusion and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
 ```bash
