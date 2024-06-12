@@ -49,8 +49,27 @@ $ python train_network.py --dataset cornell --dataset-path data/ --network grcon
 train the modified model with rfb block, multi dimensional fusion and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb_mdaf --epochs 10 --description training_cornell_rfb_mdfa
+$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
 ```
+
+train the modified model with rfb block, 3 RES-Blocks, 2 multi dimensional fusion and concatenation of shallow and deep features in upsampling (part of "lightweight cnn with gaussian based grasping representation for robotic grasping detection")
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_multi_lightweight --epochs 10 --description training_cornell_rfb_mdfa_multi_lightweight
+```
+
+train the lightweight model with ResBlocks, RFB, MDAF, MaxPool ("lightweight cnn with gaussian based grasping representation for robotic grasping detection")
+
+```bash
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 10 --description training_cornell_lightweight
+```
+
+1. View logs with tensorboard
+```
+tensorboard --logdir=logs
+```
+Then open the following url in your browser: http://localhost:6006/
+
 
 ----------------------------------------------------------------------------------------------------------------------------------
 

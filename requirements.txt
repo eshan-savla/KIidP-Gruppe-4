@@ -9,3 +9,4 @@ torchsummary
 tensorboardX
 pyrealsense2
 Pillow
+Cython
