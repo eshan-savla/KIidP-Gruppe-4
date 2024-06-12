@@ -130,6 +130,10 @@ class DepthImage(Image):
         super().__init__(img)
 
     @classmethod
+    def from_file(cls, fname):
+        return cls(imread(fname))
+
+    @classmethod
     def from_pcd(cls, pcd_filename, shape, default_filler=0, index=None):
         """
             Create a depth image from an unstructured PCD file.

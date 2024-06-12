@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from skimage.draw import polygon
 from skimage.feature import peak_local_max
+import math
 
 
 def _gr_text_to_no(l, offset=(0, 0)):
@@ -102,6 +103,37 @@ class GraspRectangles:
                 x, y, theta, w, h = [float(v) for v in l[:-1].split(';')]
                 # index based on row, column (y,x), and the Jacquard dataset's angles are flipped around an axis.
                 grs.append(Grasp(np.array([y, x]), -theta / 180.0 * np.pi, w, h).as_gr)
+        grs = cls(grs)
+        grs.scale(scale)
+        return grs
+
+    @classmethod
+    def load_from_graspnet_file(cls, fname, scale=1.0):
+        """
+        Load grasp rectangles from a Graspnet .npy file.
+        :param fname: Path to file.
+        :param scale: Scale to apply (e.g. if resizing images)
+        :return: GraspRectangles()
+        """
+        grs = []
+        # TODO
+        with open(fname) as f:
+            for l in f:
+                grs_array = np.load(l)
+                grs_array0 = grs_array[0]   # take only one grasp by picture
+                x = grs_array0[0]
+                y = grs_array0[1]
+                x_open = grs_array0[2]
+                y_open = grs_array0[3]
+                height = grs_array0[4]
+                score = grs_array0[5]
+
+                # transform graspnet labels into cornell and jaquard format
+                w = np.linalg.norm(np.array(x,y)- np.array(x_open, y_open))
+                theta = math.arctan2(y_open-y, x_open-x)
+
+                # index based on row, column (y,x) angle relative to horizontal image line in radiants
+                grs.append(Grasp(np.array([y, x]), theta, w, h).as_gr)
         grs = cls(grs)
         grs.scale(scale)
         return grs
