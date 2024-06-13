@@ -43,13 +43,13 @@ $ python train_network.py --dataset <cornell or jacquard> --dataset-path data/ -
 train the modifies model with rfb block and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
 ```
 python train_network.py --dataset graspnet --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
 train the modified model with rfb block, multi dimensional fusion and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
 ```
 
 train the modified model with rfb block, 3 RES-Blocks, 2 multi dimensional fusion and concatenation of shallow and deep features in upsampling (part of "lightweight cnn with gaussian based grasping representation for robotic grasping detection")
