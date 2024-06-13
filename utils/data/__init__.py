@@ -6,7 +6,7 @@ def get_dataset(dataset_name):
         from .jacquard_data import JacquardDataset
         return JacquardDataset
     elif dataset_name == 'graspnet':
-        from .graspnet_data import GraspnetDataset
+        from ..graspnet_data import GraspnetDataset
         return GraspnetDataset
     else:
         raise NotImplementedError('Dataset Type {} is Not implemented'.format(dataset_name))
