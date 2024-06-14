@@ -64,12 +64,18 @@ train the lightweight model with ResBlocks, RFB, MDAF, MaxPool ("lightweight cnn
 $ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 10 --description training_cornell_lightweight
 ```
 
-1. View logs with tensorboard
+6. View logs with tensorboard
 ```
 tensorboard --logdir=logs
 ```
 Then open the following url in your browser: http://localhost:6006/
 
+7. Visualize Training and Evaluation pictures:
+set the following flag at the end of your command line when calling the train_network.py or the evaluation.py!
+
+```bash
+$ --vis
+ ```
 
 ----------------------------------------------------------------------------------------------------------------------------------
 

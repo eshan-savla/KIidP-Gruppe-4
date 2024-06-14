@@ -25,7 +25,7 @@ def parse_args():
 
     # Dataset
     parser.add_argument('--dataset', type=str,
-                        help='Dataset Name ("cornell" or "jaquard")')
+                        help='Dataset Name ("cornell" or "jaquard or graspnet")')
     parser.add_argument('--dataset-path', type=str,
                         help='Path to dataset')
     parser.add_argument('--use-depth', type=int, default=1,
