@@ -61,8 +61,20 @@ $ python train_network.py --dataset cornell --dataset-path utils/data/cornell --
 train the lightweight model with ResBlocks, RFB, MDAF, MaxPool ("lightweight cnn with gaussian based grasping representation for robotic grasping detection")
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 10 --description training_cornell_lightweight
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_cornell_lightweight
 ```
+
+Train the Basic GRConvNet Model but with only 1 Residual Block to check the impact of the Residual Blocks 
+```bash
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock
+```
+
+
+Train the Basic GRConvNet Model but with only 1 Residual Block to check the impact of the Residual Blocks 
+```bash
+$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock
+```
+
 
 6. View logs with tensorboard
 ```
