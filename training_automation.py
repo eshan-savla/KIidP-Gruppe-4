@@ -40,15 +40,19 @@ def execute_command(command):
 
 # Liste der Python-Befehle
 python_commands = [
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 1 --description training_GRConvNet_Basic_with_only_1_ResBlock",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 1 --description just_a_test",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description lightweight_basis_without_rfb",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description lightweight_basis_without_maxpooling",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1resblock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_mdaf_single_single_rfb --epochs 50 --description training_GRConvNet_single_mdaf_and_single_rfb",
     # Weitere Befehle können hier hinzugefügt werden
     # "python another_script.py --option value"
 ]
 
 commit_messages = [
-    "TEST FOR AUTOMATION PURPOSES",
-    "TEST FOR TWO AUTO COMMITS",
+    "Lightweight without MaxPooling 4.4MIo Conv8 channel 128 ResBlock 3 Zeile 22",
+    "Lightweight without RFB 4.4MIo Conv8 channel 128 ResBlock 3 Zeile 22",
+    "training_GRConvNet_Basic_with_only_1_ResBlock",
+    "training_GRConvNet_Basic_1_RFB_1_MDFA_1",
     # Weitere Commit-Nachrichten können hier hinzugefügt werden
     # "Automated commit: another_script"
 
@@ -59,7 +63,7 @@ for python_command in python_commands:
     for commit_message in commit_messages:
         execute_command(python_command)
         run_git_commands(commit_message)
-        print(f"Executed command: Befehl 1 ausgeführt")
+        print(f"Executed command: Befehl ausgeführt")
         continue
 
 
