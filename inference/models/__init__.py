@@ -50,6 +50,11 @@ def get_network(network_name):
         from .lightweight_without_RFB import GenerativeResnet
         return GenerativeResnet
 
+    # Lightweight CNN with ResBlocks, MDAF but without MaxPooling
+    elif network_name == 'lightweight_without_maxpooling':
+        from .lightweight_without_MaxPooling import GenerativeResnet
+        return GenerativeResnet
+
     # GRConvNet Basic with only 1 ResBlock
     elif network_name == 'grconvnet2_1resblock':
         from .grconvnet2_1ResBlock import GenerativeResnet

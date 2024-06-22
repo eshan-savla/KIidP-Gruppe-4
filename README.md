@@ -85,6 +85,13 @@ train the lightweight model with ResBlocks, MDAF, MaxPool but without RFB ("ligh
 python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description lightweight_basis_without_rfb
 ```
 
+### Lightweight Model without MaxPooling
+train the lightweight model with ResBlocks, 2x MDAF, MaxPool but without RFB ("lightweight cnn with gaussian based grasping representation for robotic grasping detection")
+
+```bash
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description lightweight_basis_without_maxpooling
+```
+
 
 ### Basic GRConvNet with 1 ResBlock 
 
