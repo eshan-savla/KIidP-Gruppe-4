@@ -45,9 +45,23 @@ def get_network(network_name):
         from .lightweight import GenerativeResnet
         return GenerativeResnet
     
-    elif network_name == 'grconvnet2_1ResBlock':
+    # Lightweight CNN with ResBlocks, MDAF, MaxPooling but without RFB
+    elif network_name == 'lightweight_without_rfb':
+        from .lightweight_without_RFB import GenerativeResnet
+        return GenerativeResnet
+
+    # GRConvNet Basic with only 1 ResBlock
+    elif network_name == 'grconvnet2_1resblock':
         from .grconvnet2_1ResBlock import GenerativeResnet
         return GenerativeResnet
+    
+    # GRConvNet Basic with 2 MaxPooling layers during Downsampling 
+    elif network_name == 'grconvnet2_maxpooling':
+        from .grconvnet2_MaxPooling import GenerativeResnet
+        return GenerativeResnet
+    
+
+    
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
 

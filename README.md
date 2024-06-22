@@ -40,55 +40,72 @@ This fork of the original work is intended as a repository for Team 4's project 
 $ python train_network.py --dataset <cornell or jacquard> --dataset-path data/ --description training_cornell
 ```
 
+
+## Training Commands 
+
+### GRConvNet with RFB, 1 ResBlock 
 train the modifies model with rfb block and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
+Cornell: 
 ```bash
 $ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
 ```
+Graspnet: 
+```bash
 python train_network.py --dataset graspnet --dataset-path data/ --network grconvnet3_rfb --epochs 10 --description training_cornell_rfb
+```
+
+# GRConvNet with RFB, MDAF, 1 ResBlock (without concat of deep/ shallow features) 
 train the modified model with rfb block, multi dimensional fusion and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
 ```
 
+
+# GRConvNet with RFB, 3 ResBlocks, 2 MDAF 
 train the modified model with rfb block, 3 RES-Blocks, 2 multi dimensional fusion and concatenation of shallow and deep features in upsampling (part of "lightweight cnn with gaussian based grasping representation for robotic grasping detection")
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_multi_lightweight --epochs 10 --description training_cornell_rfb_mdfa_multi_lightweight
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_multi_lightweight --epochs 10 --description training_cornell_rfb_mdfa_multi_lightweight
 ```
 
+
+### Lightweight Model 
 train the lightweight model with ResBlocks, RFB, MDAF, MaxPool ("lightweight cnn with gaussian based grasping representation for robotic grasping detection")
 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_cornell_lightweight
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_cornell_lightweight
 ```
 
-Train the Basic GRConvNet Model but with only 1 Residual Block to check the impact of the Residual Blocks 
+### Lightweight Model without RFB
+train the lightweight model with ResBlocks, MDAF, MaxPool but without RFB ("lightweight cnn with gaussian based grasping representation for robotic grasping detection")
+
 ```bash
-$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description lightweight_basis_without_rfb
 ```
 
 
-Train the Basic GRConvNet Model but with only 1 Residual Block to check the impact of the Residual Blocks 
+### Basic GRConvNet with 1 ResBlock 
+
+Train the **Basic GRConvNet Model** but with **only 1 Residual Block** to check the impact of the Residual Blocks 
 ```bash
-$ python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1resblock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock
 ```
 
 
-6. View logs with tensorboard
+1. View logs with tensorboard
 ```
 tensorboard --logdir=logs
 ```
 Then open the following url in your browser: http://localhost:6006/
 
-7. Visualize Training and Evaluation pictures:
+1. Visualize Training and Evaluation pictures:
 set the following flag at the end of your command line when calling the train_network.py or the evaluation.py!
 
 ```bash
 $ --vis
  ```
-
 ----------------------------------------------------------------------------------------------------------------------------------
 
 # Antipodal Robotic Grasping
