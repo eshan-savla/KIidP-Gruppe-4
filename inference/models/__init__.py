@@ -65,6 +65,10 @@ def get_network(network_name):
         from .grconvnet2_MaxPooling import GenerativeResnet
         return GenerativeResnet
     
+    elif network_name == 'lightweight_with_increasing_filter_size':
+        from .lightweight_with_increasing_filter_size import GenerativeResnet
+        return GenerativeResnet
+    
 
     
     else:

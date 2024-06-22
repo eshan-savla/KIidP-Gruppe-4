@@ -24,7 +24,7 @@ from utils.data import get_dataset
 from utils.dataset_processing import evaluation
 from utils.visualisation.gridshow import gridshow
 
-from lightweight_with_increasing_filter_size import GenerativeResnet
+#from lightweight_with_increasing_filter_size import GenerativeResnet
 
 
 def parse_args():
@@ -302,6 +302,8 @@ def run():
         channel_size=args.channel_size
     )
 
+    import torch.optim as optim
+
     net = net.to(device)
     logging.info('Done')
 
@@ -320,11 +322,13 @@ def run():
     sys.stdout = sys.__stdout__
     f.close()
 
-    import torch.optim as optim
+   
 
     # Initialisierung des Modells, Optimierers und Kriteriums
-    model = GenerativeResnet()
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    #model = GenerativeResnet()
+    #optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.Adam(net.parameters(), lr=0.001)
+    
     criterion = nn.MSELoss()  # Beispielhaftes Kriterium
 
     best_iou = 0.0
@@ -334,7 +338,7 @@ def run():
     increase_step = 4  # Anzahl der Kanäle, um die pro Epoche erhöht wird
 
     for epoch in range(num_epochs):
-        train_results = model.train(epoch, net, device, train_data, optimizer, args.batches_per_epoch, vis=args.vis)
+        train_results = train(epoch, net, device, train_data, optimizer, args.batches_per_epoch, vis=args.vis)
         running_loss = 0.0
         for inputs, targets in train_data:
             optimizer.zero_grad()
@@ -371,7 +375,7 @@ def run():
     # Filtergröße erhöhen
     new_channel_size = initial_channel_size + (epoch + 1) * increase_step
     model.update_filter_size(new_channel_size)
-    optimizer = optim.Adam(model.parameters(), lr=0.001) 
+    optimizer = optim.Adam(net.parameters(), lr=0.001) 
 
 #    best_iou = 0.0
 #    for epoch in range(args.epochs):

@@ -124,32 +124,3 @@ class GenerativeResnet(GraspModel):
 
         return pos_output, cos_output, sin_output, width_output
 
-
-import torch.optim as optim
-
-# Initialisierung des Modells, Optimierers und Kriteriums
-model = GenerativeResnet()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
-criterion = nn.MSELoss()  # Beispielhaftes Kriterium
-
-num_epochs = 50
-initial_channel_size = 32
-increase_step = 4  # Anzahl der Kanäle, um die pro Epoche erhöht wird
-
-for epoch in range(num_epochs):
-    model.train()
-    running_loss = 0.0
-    for inputs, targets in train_loader:
-        optimizer.zero_grad()
-        outputs = model(inputs)
-        loss = criterion(outputs, targets)
-        loss.backward()
-        optimizer.step()
-        running_loss += loss.item()
-    
-    print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader)}")
-    
-    # Filtergröße erhöhen
-    new_channel_size = initial_channel_size + (epoch + 1) * increase_step
-    model.update_filter_size(new_channel_size)
-    optimizer = optim.Adam(model.parameters(), lr=0.001)  # Optimierer neu initialisieren
