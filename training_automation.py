@@ -43,7 +43,7 @@ python_commands = [
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description lightweight_basis_without_rfb",
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description lightweight_basis_without_maxpooling",
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1resblock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_mdaf_single_single_rfb --epochs 50 --description training_GRConvNet_single_mdaf_and_single_rfb",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description training_GRConvNet_single_mdaf_and_single_rfb",
     # Weitere Befehle können hier hinzugefügt werden
     # "python another_script.py --option value"
 ]
