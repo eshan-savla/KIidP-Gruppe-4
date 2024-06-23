@@ -18,14 +18,13 @@ class GenerativeResnet(GraspModel):
         self.conv3 = nn.Conv2d(channel_size * 2, channel_size * 4, kernel_size=4, stride=2, padding=1)
         self.bn3 = nn.BatchNorm2d(channel_size * 4)
 
-        #self.res1 = ResidualBlock(channel_size * 4, channel_size * 4)
-        #self.res2 = ResidualBlock(channel_size * 4, channel_size * 4)
-        #self.res3 = ResidualBlock(channel_size * 4, channel_size * 4)
-        #self.res4 = ResidualBlock(channel_size * 4, channel_size * 4)
-        #self.res5 = ResidualBlock(channel_size * 4, channel_size * 4)
+        self.res1 = ResidualBlock(channel_size * 4, channel_size * 4)
+        self.res2 = ResidualBlock(channel_size * 4, channel_size * 4)
+        self.res3 = ResidualBlock(channel_size * 4, channel_size * 4)
+        self.res4 = ResidualBlock(channel_size * 4, channel_size * 4)
+        self.res5 = ResidualBlock(channel_size * 4, channel_size * 4)
 
         self.rfb = ReceptiveFieldBlock(channel_size * 4, channel_size * 4)
-        self.res = ResidualBlock(channel_size * 4, channel_size * 4)
 
 
         self.conv4 = nn.ConvTranspose2d(channel_size * 4, channel_size * 2, kernel_size=4, stride=2, padding=1,
@@ -57,14 +56,13 @@ class GenerativeResnet(GraspModel):
         x = F.relu(self.bn1(self.conv1(x_in)))
         x = F.relu(self.bn2(self.conv2(x)))
         x = F.relu(self.bn3(self.conv3(x)))
-        #x = self.res1(x)
-        #x = self.res2(x)
-        #x = self.res3(x)
-        #x = self.res4(x)
-        #x = self.res5(x)
+        x = self.res1(x)
+        x = self.res2(x)
+        x = self.res3(x)
+        x = self.res4(x)
+        x = self.res5(x)
 
         x = self.rfb(x)
-        x = self.res(x)
 
         x = F.relu(self.bn4(self.conv4(x)))
         x = F.relu(self.bn5(self.conv5(x)))
