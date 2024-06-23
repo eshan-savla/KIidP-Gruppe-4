@@ -99,7 +99,12 @@ Train the **Basic GRConvNet Model** but with **only 1 Residual Block** to check 
 ```bash
 python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1resblock --epochs 50 --description training_GRConvNet_Basic_with_only_1_ResBlock
 ```
+### Basic GRConvNet Model with 2x MaxPooling
+Train the **Basic GRConvNet Model with 2x MaxPooling** during Downsampling to check the impact of MaxPooling 
 
+```bash
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_maxpooling --epochs 50 --description training_GRConvNet_Basic_with_2_MaxPooling_during_Downsampling
+```
 
 1. View logs with tensorboard
 ```

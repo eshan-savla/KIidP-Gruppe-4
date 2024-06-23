@@ -60,7 +60,7 @@ def get_network(network_name):
         from .grconvnet2_1ResBlock import GenerativeResnet
         return GenerativeResnet
     
-    # GRConvNet Basic with 2 MaxPooling layers during Downsampling 
+    # GRConvNet Basic with 2 MaxPooling layers during Downsampling and adjusted upsampling to match dimensions
     elif network_name == 'grconvnet2_maxpooling':
         from .grconvnet2_MaxPooling import GenerativeResnet
         return GenerativeResnet
