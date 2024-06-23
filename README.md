@@ -59,7 +59,7 @@ python train_network.py --dataset graspnet --dataset-path data/ --network grconv
 train the modified model with rfb block, multi dimensional fusion and one residual block in the embedding/ bottleneck like in paper "lightweight cnn with gaussian based grasping representation for robotic grasping detection"
 
 ```bash
-python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb_mdaf_single --epochs 10 --description training_cornell_rfb_mdfa_single
+python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 10 --description training_cornell_1rfb_1mdfa_1residual
 ```
 
 
