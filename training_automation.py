@@ -39,7 +39,7 @@ def execute_command(command):
 
 
 # Liste der Python-Befehle
-python_commands = [
+python_commands = [                                                                        
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description training_GRConvNet_single_mdaf_and_single_rfb",
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb --epochs 50 --description  changed rfb from 1 to 5 residual blocks (as orginal in gr convnet) ",
 
