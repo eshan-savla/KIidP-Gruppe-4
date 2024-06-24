@@ -13,7 +13,7 @@ else
     --network host \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --volume="./:/workspace/KIidP-Gruppe-4:rw" \
-    --privileged --shm-size=256m --gpus all \
+    --privileged --shm-size=2g --gpus all \
     --name $IMAGE_NAME \
     $IMAGE_NAME:$TAG
 fi
