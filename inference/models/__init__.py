@@ -34,6 +34,11 @@ def get_network(network_name):
     elif network_name == 'grconvnet3_1rfb_1mdaf_1residual':
         from .grconvnet3_1rfb_1mdaf_1residual import GenerativeResnet
         return GenerativeResnet
+
+    # GR-Confnet with RFB in bottleneck and multi-directional attention fusion
+    elif network_name == 'grconvnet3_1rfb_1mdaf_5residual':
+        from .grconvnet3_1rfb_1mdaf_5residual import GenerativeResnet
+        return GenerativeResnet
     
     # GR-Confnet with RFB  in bottleneck and multi-directional attention fusions including concatenation of shallow and deep features in upsampling blocks
     elif network_name == 'grconvnet3_rfb_mdaf_multi_lightweight':

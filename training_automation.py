@@ -40,20 +40,26 @@ def execute_command(command):
 
 # Liste der Python-Befehle
 python_commands = [                                                                        
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description training_GRConvNet_single_mdaf_and_single_rfb",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_rfb --epochs 50 --description  changed rfb from 1 to 5 residual blocks (as orginal in gr convnet) ",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet --epochs 50 --description training_grovnnet0_no_channelsize",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2 --epochs 50 --description training_grovnnet_with_Parameter",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_MaxPooling --epochs 50 --description training_grovnnet_with_MaxPooling",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 50 --description training_grovnnet_with_1ResBlock",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1mdaf --epochs 50 --description training_grovnnet3_with_1MDAF",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb --epochs 50 --description training_grovnnet3_with_1RFB",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description training_grovnnet3_with_5RFB",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 50 --description training_cornell_1rfb_1mdfa_1residual",
 
 
-
-    # Weitere Befehle können hier hinzugefügt werden
-    # "python another_script.py --option value"
 ]
 
 commit_messages = [
-    "Commit zu: changed grconvnet3_mdaf_single_single_rfb.py to grconvnet3_1rfb_1mdaf_5residual.py",
-    "Commit zu:  changed rfb from 1 to 5 residual blocks (as orginal in gr convnet) ",
-
-    
+    "Commit zu: training_grovnnet0_no_channelsize",
+    "Commit zu: training_grovnnet_with_Parameter ",
+    "Commit zu: training_grovnnet_with_MaxPooling ",
+    "Commit zu: training_grovnnet_with_1ResBlock ",
+    "Commit zu: training_grovnnet3_with_1MDAF ",
+    "Commit zu: training_grovnnet3_with_1RFB ",
+   
 
     # Weitere Commit-Nachrichten können hier hinzugefügt werden
     # "Automated commit: another_script"
