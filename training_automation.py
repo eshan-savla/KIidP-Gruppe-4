@@ -41,8 +41,6 @@ def execute_command(command):
 
 # Liste der Python-Befehle
 python_commands = [                                                                        
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_MaxPooling --epochs 50 --description training_grovnnet_with_MaxPooling",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet2_1ResBlock --epochs 50 --description training_grovnnet_with_1ResBlock",
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1mdaf --epochs 50 --description training_grovnnet3_with_1MDAF",
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb --epochs 50 --description training_grovnnet3_with_1RFB",
     "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description training_grovnnet3_with_5RFB",
@@ -51,8 +49,6 @@ python_commands = [
 ]
 
 commit_messages = [
-    "Commit zu: training_grovnnet_with_MaxPooling ",
-    "Commit zu: training_grovnnet_with_1ResBlock ",
     "Commit zu: training_grovnnet3_with_1MDAF ",
     "Commit zu: training_grovnnet3_with_1RFB ",
     "Commit zu: training_grovnnet3_with_5RFB ",
