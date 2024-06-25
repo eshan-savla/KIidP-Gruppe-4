@@ -40,6 +40,11 @@ def get_network(network_name):
         from .grconvnet3_1rfb_1mdaf_5residual import GenerativeResnet
         return GenerativeResnet
     
+    # GR-Confnet_3 with MaxPooling
+    elif network_name == 'grconvnet3_with_MaxPooling':
+        from .grconvnet3_with_MaxPooling import GenerativeResnet
+        return GenerativeResnet
+
     # GR-Confnet with RFB  in bottleneck and multi-directional attention fusions including concatenation of shallow and deep features in upsampling blocks
     elif network_name == 'grconvnet3_rfb_mdaf_multi_lightweight':
         from .grconvnet3_rfb_mdaf_multi_lightweight import GenerativeResnet
@@ -59,6 +64,12 @@ def get_network(network_name):
     elif network_name == 'lightweight_without_maxpooling':
         from .lightweight_without_MaxPooling import GenerativeResnet
         return GenerativeResnet
+
+    # Lightweight CNN with only 1 MDAF
+    elif network_name == 'lightweight_only_1MDAF':
+        from .lightweight_only_1MDAF import GenerativeResnet
+        return GenerativeResnet
+    
 
     # GRConvNet Basic with only 1 ResBlock
     elif network_name == 'grconvnet2_1resblock':
