@@ -54,6 +54,11 @@ def get_network(network_name):
     elif network_name == 'lightweight':
         from .lightweight import GenerativeResnet
         return GenerativeResnet
+
+    # Lightweight CNN with ResBlocks, RFB, MDAF, MaxPooling
+    elif network_name == 'lightweight_channelsize_128':
+        from .lightweight_channelsize_128 import GenerativeResnet
+        return GenerativeResnet
     
     # Lightweight CNN with ResBlocks, MDAF, MaxPooling but without RFB
     elif network_name == 'lightweight_without_rfb':
