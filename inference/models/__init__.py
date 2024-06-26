@@ -62,17 +62,17 @@ def get_network(network_name):
     
     # Lightweight CNN with ResBlocks, MDAF, MaxPooling but without RFB
     elif network_name == 'lightweight_without_rfb':
-        from .lightweight_without_RFB import GenerativeResnet
+        from .lightweight_without_rfb import GenerativeResnet
         return GenerativeResnet
 
     # Lightweight CNN with ResBlocks, MDAF but without MaxPooling
     elif network_name == 'lightweight_without_maxpooling':
-        from .lightweight_without_MaxPooling import GenerativeResnet
+        from .lightweight_without_maxpooling import GenerativeResnet
         return GenerativeResnet
 
     # Lightweight CNN with only 1 MDAF
-    elif network_name == 'lightweight_only_1MDAF':
-        from .lightweight_only_1MDAF import GenerativeResnet
+    elif network_name == 'lightweight_only_1_mdaf':
+        from .lightweight_only_1_mdaf import GenerativeResnet
         return GenerativeResnet
     
 

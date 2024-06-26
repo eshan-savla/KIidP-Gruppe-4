@@ -41,14 +41,14 @@ def execute_command(command):
 
 # Liste der Python-Befehle
 python_commands = [                                                                        
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_lightweight_channel_32",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_channelsize_128 --epochs 50 --description training_lightweight_channel_128",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_only_1_mdaf --epochs 50 --description lightweight_basis_only_1MDAF",
+    "python train_network.py --dataset cornell --dataset-path data/ --network grconvnet3_with_maxpooling --epochs 50 --description training_grovnnet3_with_MaxPooling"
 
 ]
 
 commit_messages = [
-    "Commit zu: training_lightweight_channel_32",
-    "Commit zu: training_lightweight_channel_128"
+    "Commit zu: lightweight_basis_only_1MDAF",
+    "Commit zu: training_grovnnet3_with_MaxPooling"
     # Weitere Commit-Nachrichten können hier hinzugefügt werden
     # "Automated commit: another_script"
 
