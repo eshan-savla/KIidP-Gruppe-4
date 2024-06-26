@@ -41,9 +41,9 @@ def execute_command(command):
 
 # Liste der Python-Befehle
 python_commands = [                                                                        
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_with_MaxPooling.py --epochs 50 --description training_grovnnet3_with_MaxPooling",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_cornell_lightweight",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_cornell_lightweight",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_with_MaxPooling --epochs 50 --description training_grovnnet3_with_MaxPooling",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description training_lightweight_channel_32",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_channelsize_128 --epochs 50 --description training_lightweight_channel_128",
 
 ]
 
