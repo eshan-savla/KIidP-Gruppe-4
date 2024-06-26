@@ -41,7 +41,7 @@ def get_network(network_name):
         return GenerativeResnet
     
     # GR-Confnet_3 with MaxPooling
-    elif network_name == 'grconvnet3_with_maxPooling':
+    elif network_name == 'grconvnet3_with_maxpooling':
         from .grconvnet3_with_maxpooling import GenerativeResnet
         return GenerativeResnet
 
