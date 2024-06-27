@@ -29,31 +29,23 @@ class GenerativeResnet(GraspModel):
         self.res1 = ResidualBlock(channel_size * 4, channel_size * 4) 
         self.res2 = ResidualBlock(channel_size * 4, channel_size * 4) 
         self.res3 = ResidualBlock(channel_size * 4, channel_size * 4)
-        self.res4 = ResidualBlock(channel_size * 4, channel_size * 4) 
-        self.res5 = ResidualBlock(channel_size * 4, channel_size * 4) 
 
+        # 1x Receptive Field Block
         self.rfb = ReceptiveFieldBlock(channel_size * 4, channel_size * 4)  
 
         # Upsampling Blocks
         self.convT4 = nn.ConvTranspose2d(channel_size * 4 * 2, channel_size * 2, kernel_size=4, stride=2, padding=1)
         self.bn4 = nn.BatchNorm2d(channel_size * 2)
+        
+        self.convT5 = nn.ConvTranspose2d(channel_size * 4 * 2, channel_size * 2, kernel_size=4, stride=2, padding=1)
+        self.bn5 = nn.BatchNorm2d(channel_size * 2)
 
         # Multi Dimensional Attention Fusion Blocks      
         self.attention_fusion_1 = MultiDimensionalAttentionFusion(channel_size * 4 * 2) # dimensions changed due to concatenation
 
         # Multi Dimensional Attention Fusion Blocks      
-        self.attention_fusion_2 = MultiDimensionalAttentionFusion(channel_size * 4 ) 
-
-        # Upsampling Blocks
-        self.convT5 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size, kernel_size=4, stride=2, padding=1)
-        self.bn5 = nn.BatchNorm2d(channel_size)
-        
-        self.convT6 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size, kernel_size=4, stride=2, padding=1)
-        self.bn6 = nn.BatchNorm2d(channel_size)
-        
-        self.convT7 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size, kernel_size=4, stride=2, padding=1)
-        self.bn7 = nn.BatchNorm2d(channel_size)
-        
+        self.attention_fusion_2 = MultiDimensionalAttentionFusion(channel_size * 4 )       
+       
         
 
         self.pos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=3, stride=1, padding=1) #kernel_size=3 to match dimensions
@@ -85,6 +77,7 @@ class GenerativeResnet(GraspModel):
 
         # Receptive Field Block
         x07 = self.rfb(x06)
+
         
         # Multi Dimensional Attention Fusion 1
         x08 = torch.cat((x07, x03), 1) # Concatenation of shallow and deep features, Dimension = 1
@@ -92,6 +85,7 @@ class GenerativeResnet(GraspModel):
 
         # Upsampling Block
         x10 = F.relu(self.bn4(self.convT4(x09)))
+
 
         # Multi Dimensional Attention Fusion 2
         x11 = torch.cat((x10, x02), 1) # Concatenation of shallow and deep features, Dimension = 1
