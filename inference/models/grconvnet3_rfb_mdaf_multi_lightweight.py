@@ -25,9 +25,12 @@ class GenerativeResnet(GraspModel):
         self.conv3 = nn.Conv2d(channel_size * 2, channel_size * 4, kernel_size=4, stride=2, padding=1) 
         self.bn3 = nn.BatchNorm2d(channel_size * 4)
 
+        # Bottleneck
         self.res1 = ResidualBlock(channel_size * 4, channel_size * 4) 
         self.res2 = ResidualBlock(channel_size * 4, channel_size * 4) 
-        self.res3 = ResidualBlock(channel_size * 4, channel_size * 4) 
+        self.res3 = ResidualBlock(channel_size * 4, channel_size * 4)
+        self.res4 = ResidualBlock(channel_size * 4, channel_size * 4) 
+        self.res5 = ResidualBlock(channel_size * 4, channel_size * 4) 
 
         self.rfb = ReceptiveFieldBlock(channel_size * 4, channel_size * 4)  
 
@@ -44,6 +47,14 @@ class GenerativeResnet(GraspModel):
         # Upsampling Blocks
         self.convT5 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size, kernel_size=4, stride=2, padding=1)
         self.bn5 = nn.BatchNorm2d(channel_size)
+        
+        self.convT6 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size, kernel_size=4, stride=2, padding=1)
+        self.bn6 = nn.BatchNorm2d(channel_size)
+        
+        self.convT7 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size, kernel_size=4, stride=2, padding=1)
+        self.bn7 = nn.BatchNorm2d(channel_size)
+        
+        
 
         self.pos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=3, stride=1, padding=1) #kernel_size=3 to match dimensions
         self.cos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=3, stride=1, padding=1)
