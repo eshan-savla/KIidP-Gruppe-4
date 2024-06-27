@@ -26,6 +26,11 @@ def get_network(network_name):
         from .grconvnet3_1residual import GenerativeResnet
         return GenerativeResnet
     
+    # GR-Confnet with two maxPooling
+    elif network_name == 'grconvnet3_2maxpool':
+        from .grconvnet3_2maxpool import GenerativeResnet
+        return GenerativeResnet
+    
     # GR-Confnet with RFB in bottleneck
     elif network_name == 'grconvnet3_1rfb':
         from .grconvnet3_1rfb import GenerativeResnet
