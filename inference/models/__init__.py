@@ -21,8 +21,12 @@ def get_network(network_name):
         from .grconvnet4 import GenerativeResnet
         return GenerativeResnet
     
+    # GR-Confnet with only one residual in bottleneck
+    elif network_name == 'grconvnet3_1residual':
+        from .grconvnet3_1residual import GenerativeResnet
+        return GenerativeResnet
+    
     # GR-Confnet with RFB in bottleneck
-    # Inverted GR-ConvNet
     elif network_name == 'grconvnet3_1rfb':
         from .grconvnet3_1rfb import GenerativeResnet
         return GenerativeResnet
@@ -78,12 +82,12 @@ def get_network(network_name):
 
     # GRConvNet Basic with only 1 ResBlock
     elif network_name == 'grconvnet2_1resblock':
-        from .grconvnet2_1ResBlock import GenerativeResnet
+        from .temp.grconvnet2_1ResBlock import GenerativeResnet
         return GenerativeResnet
     
     # GRConvNet Basic with 2 MaxPooling layers during Downsampling and adjusted upsampling to match dimensions
     elif network_name == 'grconvnet2_maxpooling':
-        from .grconvnet2_MaxPooling import GenerativeResnet
+        from .temp.grconvnet2_MaxPooling import GenerativeResnet
         return GenerativeResnet
     
     elif network_name == 'lightweight_with_increasing_filter_size':
