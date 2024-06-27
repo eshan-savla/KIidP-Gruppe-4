@@ -55,7 +55,7 @@ def get_network(network_name):
         return GenerativeResnet
 
     # GR-Confnet with RFB  in bottleneck and multi-directional attention fusions including concatenation of shallow and deep features in upsampling blocks
-    elif network_name == 'grconvnet3_rfb_mdaf_multi_lightweight':
+    elif network_name == 'grconvnet3_1rfb_2mdaf':
         from .grconvnet3_1rfb_2mdaf import GenerativeResnet
         return GenerativeResnet
     
