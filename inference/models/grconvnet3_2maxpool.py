@@ -1,6 +1,6 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
 from inference.models.grasp_model import GraspModel, ResidualBlock
 
 
@@ -27,16 +27,13 @@ class GenerativeResnet(GraspModel):
         self.res4 = ResidualBlock(channel_size * 4, channel_size * 4)
         self.res5 = ResidualBlock(channel_size * 4, channel_size * 4)
 
-        self.conv4 = nn.ConvTranspose2d(channel_size * 4, channel_size * 2, kernel_size=4, stride=2, padding=1,
-                                        output_padding=1)
+        self.conv4 = nn.ConvTranspose2d(channel_size * 4, channel_size * 2, kernel_size=4, stride=2, padding=1, output_padding=0)
         self.bn4 = nn.BatchNorm2d(channel_size * 2)
 
-        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=1,
-                                        output_padding=1)
+        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=1, output_padding=0)
         self.bn5 = nn.BatchNorm2d(channel_size)
 
-        self.conv6 = nn.ConvTranspose2d(channel_size, channel_size, kernel_size=4, stride=2, padding=1,
-                                        output_padding=1)
+        self.conv6 = nn.ConvTranspose2d(channel_size, channel_size, kernel_size=4, stride=2, padding=1, output_padding=0)
 
         self.pos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=2)
         self.cos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=2)
@@ -55,18 +52,35 @@ class GenerativeResnet(GraspModel):
 
     def forward(self, x_in):
         x = F.relu(self.bn1(self.conv1(x_in)))
+        print(f"After conv1: {x.shape}")
+        
         x = F.relu(self.bn2(self.conv2(x)))
-        x = self.pool1(x)  # Applied MaxPooling
+        print(f"After conv2: {x.shape}")
+        
+        x = self.pool1(x)
+        print(f"After pool1: {x.shape}")
+        
         x = F.relu(self.bn3(self.conv3(x)))
-        x = self.pool2(x)  # Applied MaxPooling
+        print(f"After conv3: {x.shape}")
+        
+        x = self.pool2(x)
+        print(f"After pool2: {x.shape}")
+        
         x = self.res1(x)
         x = self.res2(x)
         x = self.res3(x)
         x = self.res4(x)
         x = self.res5(x)
+        print(f"After residual blocks: {x.shape}")
+        
         x = F.relu(self.bn4(self.conv4(x)))
+        print(f"After conv4: {x.shape}")
+        
         x = F.relu(self.bn5(self.conv5(x)))
+        print(f"After conv5: {x.shape}")
+        
         x = self.conv6(x)
+        print(f"After conv6: {x.shape}")
 
         if self.dropout:
             pos_output = self.pos_output(self.dropout_pos(x))
@@ -80,3 +94,4 @@ class GenerativeResnet(GraspModel):
             width_output = self.width_output(x)
 
         return pos_output, cos_output, sin_output, width_output
+
