@@ -37,17 +37,15 @@ class GenerativeResnet(GraspModel):
         self.convT4 = nn.ConvTranspose2d(channel_size * 4 * 2, channel_size * 2, kernel_size=4, stride=2, padding=1)
         self.bn4 = nn.BatchNorm2d(channel_size * 2)
         
-        self.convT5 = nn.ConvTranspose2d(channel_size * 4 * 2, channel_size * 2, kernel_size=4, stride=2, padding=1)
-        self.bn5 = nn.BatchNorm2d(channel_size * 2)
+        self.convT5 = nn.ConvTranspose2d(channel_size * 2 * 2, channel_size * 1, kernel_size=4, stride=2, padding=1) # channel_size * 1 as final layer
+        self.bn5 = nn.BatchNorm2d(channel_size * 1)
 
         # Multi Dimensional Attention Fusion Blocks      
         self.attention_fusion_1 = MultiDimensionalAttentionFusion(channel_size * 4 * 2) # dimensions changed due to concatenation
 
         # Multi Dimensional Attention Fusion Blocks      
-        self.attention_fusion_2 = MultiDimensionalAttentionFusion(channel_size * 4 )       
+        self.attention_fusion_2 = MultiDimensionalAttentionFusion(channel_size * 2 * 2) # updated to match concatenation dimensions
        
-        
-
         self.pos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=3, stride=1, padding=1) #kernel_size=3 to match dimensions
         self.cos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=3, stride=1, padding=1)
         self.sin_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=3, stride=1, padding=1)

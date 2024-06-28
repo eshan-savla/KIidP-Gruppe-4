@@ -31,11 +31,12 @@ class GenerativeResnet(GraspModel):
                                         output_padding=1)
         self.bn4 = nn.BatchNorm2d(channel_size * 2)
 
-        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=2,
+        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=1,
                                         output_padding=1)
         self.bn5 = nn.BatchNorm2d(channel_size)
 
-        self.conv6 = nn.ConvTranspose2d(channel_size, channel_size, kernel_size=9, stride=1, padding=4)
+        self.conv6 = nn.ConvTranspose2d(channel_size, channel_size, kernel_size=4, stride=2, padding=1,
+                                        output_padding=1)
 
         self.pos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=2)
         self.cos_output = nn.Conv2d(in_channels=channel_size, out_channels=output_channels, kernel_size=2)
