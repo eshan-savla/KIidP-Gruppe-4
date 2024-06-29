@@ -41,13 +41,14 @@ def execute_command(command):
 
 # Liste der Python-Befehle
 python_commands = [      
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3 --epochs 50 --description Orginal_GR-Convnet3_als_Referenz",                                                                  
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1residual --epochs 50 --description Orginal_GR_Convnet3_mit_nur_einem_Residual_Block",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1mdaf --epochs 50 --description Orginal_GR_Convnet3_zus_MDAF_Block_im_bottleneck_Einfluss_durch_MDAF_zu_testen ",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb --epochs 50 --description Orginal_GR_Convnet3_zus_RFB_im_bottleneck_um_Einfluss_durch_RFB_zu_testen  ",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description Orginal_GR_Convnet3_mit_allen_5_residual_Blocks_und_jeweils_einem_RFB_u_MDAF  ",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 50 --description Orginal_GR_Convnet3_mit_nur_einem_residual_Block_und_jeweils_einem_RFB_u_MDAF  ",
-
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3 --epochs 50 --description Orginal_GR-Convnet3_als_Referenz",                                                                  
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1residual --epochs 50 --description Orginal_GR_Convnet3_mit_nur_einem_Residual_Block",
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1mdaf --epochs 50 --description Orginal_GR_Convnet3_zus_MDAF_Block_im_bottleneck_Einfluss_durch_MDAF_zu_testen ",
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb --epochs 50 --description Orginal_GR_Convnet3_zus_RFB_im_bottleneck_um_Einfluss_durch_RFB_zu_testen  ",
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description Orginal_GR_Convnet3_mit_allen_5_residual_Blocks_und_jeweils_einem_RFB_u_MDAF  ",
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 50 --description Orginal_GR_Convnet3_mit_nur_einem_residual_Block_und_jeweils_einem_RFB_u_MDAF  ",
+    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description Orginal_GR-Convnet3_mit_3_residual_Blocks_einem_RFB_2_MDAF_und_nur_2_ConfT2D",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_2maxpool --epochs 50 --description Orginal_GR_Convnet3_mit_2_MaxPooling",
 
 
 
@@ -75,12 +76,15 @@ python_commands = [
 
 
 commit_messages = [
-    "Commit zu: Orginal_GR-Convnet3_als_Referenz",
-    "Commit zu: Orginal_GR_Convnet3_mit_nur_einem_Residual_Block",
-    "Commit zu: Orginal_GR_Convnet3_zus_MDAF_Block_im_bottleneck_Einfluss_durch_MDAF_zu_testen",
-    "Commit zu: Orginal_GR_Convnet3_zus_RFB_im_bottleneck_um_Einfluss_durch_RFB_zu_testen",
-    "Commit zu: Orginal_GR_Convnet3_mit_allen_5_residual_Blocks_und_jeweils_einem_RFB_u_MDAF",
-    "Commit zu: Orginal_GR_Convnet3_mit_nur_einem_residual_Block_und_jeweils_einem_RFB_u_MDAF",
+    #"Commit zu: Orginal_GR-Convnet3_als_Referenz",
+    #"Commit zu: Orginal_GR_Convnet3_mit_nur_einem_Residual_Block",
+    #"Commit zu: Orginal_GR_Convnet3_zus_MDAF_Block_im_bottleneck_Einfluss_durch_MDAF_zu_testen",
+    #"Commit zu: Orginal_GR_Convnet3_zus_RFB_im_bottleneck_um_Einfluss_durch_RFB_zu_testen",
+    #"Commit zu: Orginal_GR_Convnet3_mit_allen_5_residual_Blocks_und_jeweils_einem_RFB_u_MDAF",
+    #"Commit zu: Orginal_GR_Convnet3_mit_nur_einem_residual_Block_und_jeweils_einem_RFB_u_MDAF",
+    "Commit zu: Orginal_GR_Convnet3_mit_2_MaxPooling",
+    #"Commit zu: Convnet3_mit_3_residual_Blocks_einem_RFB_2_MDAF_und_nur_2_ConfT2D",
+
 
 
     # Weitere Commit-Nachrichten können hier hinzugefügt werden
@@ -100,6 +104,12 @@ for python_command in python_commands:
     execute_command(python_command)
     print(f"ExecuteD command: {python_command}")
     print("Endzeit:", datetime.datetime.now())
+
+    print("")
+    print("-----------------------------------")
+    print("-----------------------------------")
+    print("")
+
 
     print(f"Started command: " + commit_messages[i])
     run_git_commands(commit_messages[i])
