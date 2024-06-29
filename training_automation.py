@@ -48,7 +48,7 @@ python_commands = [
     #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description Orginal_GR_Convnet3_mit_allen_5_residual_Blocks_und_jeweils_einem_RFB_u_MDAF  ",
     #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 50 --description Orginal_GR_Convnet3_mit_nur_einem_residual_Block_und_jeweils_einem_RFB_u_MDAF  ",
     #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description Orginal_GR-Convnet3_mit_3_residual_Blocks_einem_RFB_2_MDAF_und_nur_2_ConfT2D",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_2maxpool --epochs 50 --description Orginal_GR_Convnet3_mit_2_MaxPooling",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_2maxpool --epochs 1 --description Orginal_GR_Convnet3_mit_2_MaxPooling",
 
 
 
@@ -112,7 +112,7 @@ for python_command in python_commands:
 
 
     print(f"Started command: " + commit_messages[i])
-    run_git_commands(commit_messages[i])
+    #run_git_commands(commit_messages[i])
     print(f"Executed command: " + commit_messages[i])
     i= i+1
     
