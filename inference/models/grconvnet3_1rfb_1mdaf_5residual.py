@@ -75,6 +75,8 @@ class GenerativeResnet(GraspModel):
         x = self.res4(x)
         x = self.res5(x)
 
+        x = self.rfb(x)
+
         ####  Added for the Multi Dimensional Attention Fusion #####
         x = self.attention_fusion(x)
 
