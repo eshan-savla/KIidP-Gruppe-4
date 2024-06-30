@@ -45,26 +45,39 @@ def execute_command(command):
 # Liste der Python-Befehle
 python_commands = [      
     #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3 --epochs 50 --description grconvnet3",                                                                  
-    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1residual --epochs 50 --description grconvnet3_1residual",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1mdaf --epochs 50 --description grconvnet3_1mdaf",
-    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb --epochs 50 --description grconvnet3_1rfb",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description grconvnet3_1rfb_1mdaf_5residual",
-    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 50 --description grconvnet3_1rfb_1mdaf_1residual",
-    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description grconvnet3_1rfb_2mdaf",
-    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_2maxpool --epochs 50 --description grconvnet3_2maxpool",
-    #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description grconvnet3_1rfb_2mdaf",
+    # #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1residual --epochs 50 --description grconvnet3_1residual",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1mdaf --epochs 50 --description grconvnet3_1mdaf",
+    # #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb --epochs 50 --description grconvnet3_1rfb",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_5residual --epochs 50 --description grconvnet3_1rfb_1mdaf_5residual",
+    # #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_1mdaf_1residual --epochs 50 --description grconvnet3_1rfb_1mdaf_1residual",
+    # #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description grconvnet3_1rfb_2mdaf",
+    # #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_2maxpool --epochs 50 --description grconvnet3_2maxpool",
+    # #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description grconvnet3_1rfb_2mdaf",
 
-    # Lightweight
+    # # Lightweight
 
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description Original_training_lightweight",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_channelsize_128 --epochs 50 --description Original_training_lightweight_channelsize_128",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description Original_training_lightweight_without_pooling",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description Original_training_lightweight_without_rfb",
-    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_only_1_mdaf --epochs 50 --description Original_training_lightweight_with_only_1_mdaf",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description Original_training_lightweight",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_channelsize_128 --epochs 50 --description Original_training_lightweight_channelsize_128",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description Original_training_lightweight_without_pooling",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description Original_training_lightweight_without_rfb",
+    # "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_only_1_mdaf --epochs 50 --description Original_training_lightweight_with_only_1_mdaf",
     
 
 
+    #### NEW ####
+    # Lightweight mit Channel Size 128
 
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description lightweight_channelsize_128 --channel-size 128",
+
+
+    # Lightweight mit Channel Size 64
+
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description lightweight_channelsize_64 --channel-size 64",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description lightweight_channelsize_64_without_pooling --channel-size 64",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description lightweight_channelsize_64_without_rfb --channel-size 64",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_only_1_mdaf --epochs 50 --description lightweight_channelsize_64_with_only_1_mdaf --channel-size 64",
+    
+    #### --- ####
 
 
 ]
@@ -81,14 +94,27 @@ python_commands = [
 
 
 commit_messages = [
-    " training log grconvnet3_1mdaf",
-    " training log grconvnet3_1rfb_1mdaf_5residual",
-    # Lightweight
-    "Commit zu: RUN_3_Original_training_lightweight",
-    "Commit zu: RUN_3_Original_training_lightweight_channelsize_128",
-    "Commit zu: RUN_3_Original_training_lightweight_without_pooling",
-    "Commit zu: RUN_3_Original_training_lightweight_without_rfb",
-    "Commit zu: RUN_3_Original_training_lightweight_with_only_1_mdaf",
+
+    # Lightweight NEW (Channel Size 128 & 64)
+    " Training Log for: lightweight_channelsize_128",
+    " Training Log for: lightweight_channelsize_64",
+    " Training Log for: lightweight_channelsize_64_without_pooling",
+    " Training Log for: lightweight_channelsize_64_without_rfb",
+    " Training Log for: lightweight_channelsize_64_with_only_1_mdaf",
+
+
+
+    
+
+
+    # " training log grconvnet3_1mdaf",
+    # " training log grconvnet3_1rfb_1mdaf_5residual",
+    # # Lightweight
+    # "Commit zu: RUN_3_Original_training_lightweight",
+    # "Commit zu: RUN_3_Original_training_lightweight_channelsize_128",
+    # "Commit zu: RUN_3_Original_training_lightweight_without_pooling",
+    # "Commit zu: RUN_3_Original_training_lightweight_without_rfb",
+    # "Commit zu: RUN_3_Original_training_lightweight_with_only_1_mdaf",
 
     #"Commit zu: Orginal_GR-Convnet3_als_Referenz",
     #"Commit zu: Orginal_GR_Convnet3_mit_nur_einem_Residual_Block",
