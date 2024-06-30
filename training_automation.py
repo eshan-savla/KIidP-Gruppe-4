@@ -54,7 +54,13 @@ python_commands = [
     #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_2maxpool --epochs 50 --description grconvnet3_2maxpool",
     #"python train_network.py --dataset cornell --dataset-path utils/data/cornell --network grconvnet3_1rfb_2mdaf --epochs 50 --description grconvnet3_1rfb_2mdaf",
 
+    # Lightweight
 
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight --epochs 50 --description Original_training_lightweight",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_channelsize_128 --epochs 50 --description Original_training_lightweight_channelsize_128",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_maxpooling --epochs 50 --description Original_training_lightweight_without_pooling",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_without_rfb --epochs 50 --description Original_training_lightweight_without_rfb",
+    "python train_network.py --dataset cornell --dataset-path utils/data/cornell --network lightweight_only_1_mdaf --epochs 50 --description Original_training_lightweight_with_only_1_mdaf",
     
 
 
@@ -77,6 +83,12 @@ python_commands = [
 commit_messages = [
     " training log grconvnet3_1mdaf",
     " training log grconvnet3_1rfb_1mdaf_5residual",
+    # Lightweight
+    "Commit zu: RUN_3_Original_training_lightweight",
+    "Commit zu: RUN_3_Original_training_lightweight_channelsize_128",
+    "Commit zu: RUN_3_Original_training_lightweight_without_pooling",
+    "Commit zu: RUN_3_Original_training_lightweight_without_rfb",
+    "Commit zu: RUN_3_Original_training_lightweight_with_only_1_mdaf",
 
     #"Commit zu: Orginal_GR-Convnet3_als_Referenz",
     #"Commit zu: Orginal_GR_Convnet3_mit_nur_einem_Residual_Block",
