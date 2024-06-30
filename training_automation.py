@@ -4,6 +4,9 @@ import datetime
 
 def run_git_commands(commit_message):
     try:
+        git_pull_command = "git pull"
+        execute_command(git_pull_command)
+
         # Änderungen zu Git hinzufügen
         git_add_command = "git add ."
         execute_command(git_add_command)
