@@ -167,8 +167,8 @@ def train(epoch, net, device, train_data, optimizer, batches_per_epoch, vis=Fals
 
             xc = x.to(device)
             yc = [yy.to(device) for yy in y]
-            logging.info('xc', xc)
-            logging.info('yc', yc)
+            # logging.info('xc', xc)
+            # logging.info('yc', yc)
             lossd = net.compute_loss(xc, yc)
 
             loss = lossd['loss']
@@ -318,7 +318,6 @@ def run():
     for epoch in range(args.epochs):
         logging.info('Beginning Epoch {:02d}'.format(epoch))
         train_results = train(epoch, net, device, train_data, optimizer, args.batches_per_epoch, vis=args.vis)
-        logging.info('Nach Training')
 
         # Log training losses to tensorboard
         tb.add_scalar('loss/train_loss', train_results['loss'], epoch)
