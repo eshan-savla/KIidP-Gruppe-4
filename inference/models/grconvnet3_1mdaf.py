@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 import torch.nn.functional as F
 
 from inference.models.grasp_model import GraspModel, ResidualBlock
@@ -28,15 +29,13 @@ class GenerativeResnet(GraspModel):
         self.res5 = ResidualBlock(channel_size * 4, channel_size * 4)
 
         ####  Added for the Multi Dimensional Attention Fusion #####
-        self.attention_fusion = MultiDimensionalAttentionFusion(channel_size * 4)
+        self.attention_fusion = MultiDimensionalAttentionFusion(channel_size * 4 * 2)  # *2 because of the concatiantion
 
 
-        self.conv4 = nn.ConvTranspose2d(channel_size * 4, channel_size * 2, kernel_size=4, stride=2, padding=1,
-                                        output_padding=1)
+        self.conv4 = nn.ConvTranspose2d(channel_size * 4 * 2, channel_size * 2, kernel_size=4, stride=2, padding=1, output_padding=1)       # input *2 because of the concatiantion
         self.bn4 = nn.BatchNorm2d(channel_size * 2)
 
-        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=2,
-                                        output_padding=1)
+        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=2, output_padding=1)
         self.bn5 = nn.BatchNorm2d(channel_size)
 
         self.conv6 = nn.ConvTranspose2d(channel_size, channel_size, kernel_size=9, stride=1, padding=4)
@@ -57,31 +56,32 @@ class GenerativeResnet(GraspModel):
                 nn.init.xavier_uniform_(m.weight, gain=1)
 
     def forward(self, x_in):
-        x = F.relu(self.bn1(self.conv1(x_in)))
-        x = F.relu(self.bn2(self.conv2(x)))
-        x = F.relu(self.bn3(self.conv3(x)))
-        x = self.res1(x)
-        x = self.res2(x)
-        x = self.res3(x)
-        x = self.res4(x)
-        x = self.res5(x)
+        x01 = F.relu(self.bn1(self.conv1(x_in)))
+        x02 = F.relu(self.bn2(self.conv2(x01)))
+        x03 = F.relu(self.bn3(self.conv3(x02)))
+        x04 = self.res1(x03)
+        x05 = self.res2(x04)
+        x06 = self.res3(x05)
+        x07 = self.res4(x06)
+        x08 = self.res5(x07)
 
         ####  Added for the Multi Dimensional Attention Fusion #####
-        x = self.attention_fusion(x)
+        x09 = torch.cat((x08, x03), 1) # Concatenation of shallow and deep features, Dimension = 1
+        x10 = self.attention_fusion(x09)
 
-        x = F.relu(self.bn4(self.conv4(x)))
-        x = F.relu(self.bn5(self.conv5(x)))
-        x = self.conv6(x)
+        x11 = F.relu(self.bn4(self.conv4(x10)))
+        x12 = F.relu(self.bn5(self.conv5(x11)))
+        x13 = self.conv6(x12)
 
         if self.dropout:
-            pos_output = self.pos_output(self.dropout_pos(x))
-            cos_output = self.cos_output(self.dropout_cos(x))
-            sin_output = self.sin_output(self.dropout_sin(x))
-            width_output = self.width_output(self.dropout_wid(x))
+            pos_output = self.pos_output(self.dropout_pos(x13))
+            cos_output = self.cos_output(self.dropout_cos(x13))
+            sin_output = self.sin_output(self.dropout_sin(x13))
+            width_output = self.width_output(self.dropout_wid(x13))
         else:
-            pos_output = self.pos_output(x)
-            cos_output = self.cos_output(x)
-            sin_output = self.sin_output(x)
-            width_output = self.width_output(x)
+            pos_output = self.pos_output(x13)
+            cos_output = self.cos_output(x13)
+            sin_output = self.sin_output(x13)
+            width_output = self.width_output(x13)
 
         return pos_output, cos_output, sin_output, width_output

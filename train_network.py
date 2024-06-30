@@ -167,6 +167,8 @@ def train(epoch, net, device, train_data, optimizer, batches_per_epoch, vis=Fals
 
             xc = x.to(device)
             yc = [yy.to(device) for yy in y]
+            # logging.info('xc', xc)
+            # logging.info('yc', yc)
             lossd = net.compute_loss(xc, yc)
 
             loss = lossd['loss']
