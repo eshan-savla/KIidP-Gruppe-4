@@ -29,15 +29,13 @@ class GenerativeResnet(GraspModel):
         self.res5 = ResidualBlock(channel_size * 4, channel_size * 4)
 
         ####  Added for the Multi Dimensional Attention Fusion #####
-        self.attention_fusion = MultiDimensionalAttentionFusion(channel_size * 4)
+        self.attention_fusion = MultiDimensionalAttentionFusion(channel_size * 4 * 2)  # *2 because of the concatiantion
 
 
-        self.conv4 = nn.ConvTranspose2d(channel_size * 4, channel_size * 2, kernel_size=4, stride=2, padding=1,
-                                        output_padding=1)
+        self.conv4 = nn.ConvTranspose2d(channel_size * 4 * 2, channel_size * 2, kernel_size=4, stride=2, padding=1, output_padding=1)       # input *2 because of the concatiantion
         self.bn4 = nn.BatchNorm2d(channel_size * 2)
 
-        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=2,
-                                        output_padding=1)
+        self.conv5 = nn.ConvTranspose2d(channel_size * 2, channel_size, kernel_size=4, stride=2, padding=2, output_padding=1)
         self.bn5 = nn.BatchNorm2d(channel_size)
 
         self.conv6 = nn.ConvTranspose2d(channel_size, channel_size, kernel_size=9, stride=1, padding=4)
