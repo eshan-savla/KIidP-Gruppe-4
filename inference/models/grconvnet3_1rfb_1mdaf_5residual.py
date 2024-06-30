@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 import torch.nn.functional as F
 
 from inference.models.grasp_model import GraspModel, ResidualBlock
@@ -66,33 +67,34 @@ class GenerativeResnet(GraspModel):
                 nn.init.xavier_uniform_(m.weight, gain=1)
 
     def forward(self, x_in):
-        x = F.relu(self.bn1(self.conv1(x_in)))
-        x = F.relu(self.bn2(self.conv2(x)))
-        x = F.relu(self.bn3(self.conv3(x)))
-        x = self.res1(x)
-        x = self.res2(x)
-        x = self.res3(x)
-        x = self.res4(x)
-        x = self.res5(x)
+        x01 = F.relu(self.bn1(self.conv1(x_in)))
+        x02 = F.relu(self.bn2(self.conv2(x01)))
+        x03 = F.relu(self.bn3(self.conv3(x02)))
+        x04 = self.res1(x03)
+        x05 = self.res2(x04)
+        x06 = self.res3(x05)
+        x07 = self.res4(x06)
+        x08 = self.res5(x07)
 
-        x = self.rfb(x)
+        x09 = self.rfb(x08)
 
         ####  Added for the Multi Dimensional Attention Fusion #####
-        x = self.attention_fusion(x)
+        x10 = torch.cat((x09, x03), 1) # Concatenation of shallow and deep features, Dimension = 1
+        x11 = self.attention_fusion(x10)
 
-        x = F.relu(self.bn4(self.conv4(x)))
-        x = F.relu(self.bn5(self.conv5(x)))
-        x = self.conv6(x)
+        x12 = F.relu(self.bn4(self.conv4(x11)))
+        x13 = F.relu(self.bn5(self.conv5(x12)))
+        x14 = self.conv6(x13)
 
         if self.dropout:
-            pos_output = self.pos_output(self.dropout_pos(x))
-            cos_output = self.cos_output(self.dropout_cos(x))
-            sin_output = self.sin_output(self.dropout_sin(x))
-            width_output = self.width_output(self.dropout_wid(x))
+            pos_output = self.pos_output(self.dropout_pos(x14))
+            cos_output = self.cos_output(self.dropout_cos(x14))
+            sin_output = self.sin_output(self.dropout_sin(x14))
+            width_output = self.width_output(self.dropout_wid(x14))
         else:
-            pos_output = self.pos_output(x)
-            cos_output = self.cos_output(x)
-            sin_output = self.sin_output(x)
-            width_output = self.width_output(x)
+            pos_output = self.pos_output(x14)
+            cos_output = self.cos_output(x14)
+            sin_output = self.sin_output(x14)
+            width_output = self.width_output(x14)
 
         return pos_output, cos_output, sin_output, width_output
