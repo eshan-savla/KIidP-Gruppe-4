@@ -51,7 +51,7 @@ def get_network(network_name):
     
     # GR-Confnet_3 with MaxPooling
     elif network_name == 'grconvnet3_with_maxpooling':
-        from .grconvnet3_with_maxpooling import GenerativeResnet
+        from .temp.grconvnet3_with_maxpooling import GenerativeResnet
         return GenerativeResnet
 
     # GR-Confnet with RFB  in bottleneck and multi-directional attention fusions including concatenation of shallow and deep features in upsampling blocks
