@@ -1,0 +1,8 @@
+[11:29:49] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[11:29:49] {evaluate.py:109} INFO - Loading Cornell Dataset...
+[11:29:49] {evaluate.py:127} INFO - Validation size: 89
+[11:29:49] {evaluate.py:135} INFO - Done
+[11:29:49] {evaluate.py:138} INFO - 
+Evaluating model trained-models/Lightweight_3_Lauf_fixed_channel_size/240701_0400_lightweight_channelsize_64_with_only_1_mdaf/epoch_10_iou_0.96
+[11:30:30] {evaluate.py:210} INFO - Average evaluation time per image: 452.10460598549145ms
+[11:30:30] {evaluate.py:215} INFO - IOU Results: 84/89 = 0.943820

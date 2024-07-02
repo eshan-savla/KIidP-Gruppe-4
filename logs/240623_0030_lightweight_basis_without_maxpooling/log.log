@@ -1,0 +1,36 @@
+[00:30:27] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[00:30:27] {train_network.py:247} INFO - Loading Cornell Dataset...
+[00:30:27] {train_network.py:256} INFO - Dataset size is 885
+[00:30:27] {train_network.py:265} INFO - Training size: 796
+[00:30:27] {train_network.py:266} INFO - Validation size: 89
+[00:30:27] {train_network.py:284} INFO - Done
+[00:30:27] {train_network.py:287} INFO - Loading Network...
+[00:30:27] {train_network.py:298} INFO - Done
+[00:30:28] {train_network.py:317} INFO - Beginning Epoch 00
+[00:30:33] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[00:30:33] {train_network.py:247} INFO - Loading Cornell Dataset...
+[00:30:33] {train_network.py:256} INFO - Dataset size is 885
+[00:30:33] {train_network.py:265} INFO - Training size: 796
+[00:30:33] {train_network.py:266} INFO - Validation size: 89
+[00:30:33] {train_network.py:284} INFO - Done
+[00:30:33] {train_network.py:287} INFO - Loading Network...
+[00:30:34] {train_network.py:298} INFO - Done
+[00:30:35] {train_network.py:317} INFO - Beginning Epoch 00
+[00:30:39] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[00:30:39] {train_network.py:247} INFO - Loading Cornell Dataset...
+[00:30:39] {train_network.py:256} INFO - Dataset size is 885
+[00:30:39] {train_network.py:265} INFO - Training size: 796
+[00:30:39] {train_network.py:266} INFO - Validation size: 89
+[00:30:39] {train_network.py:284} INFO - Done
+[00:30:39] {train_network.py:287} INFO - Loading Network...
+[00:30:40] {train_network.py:298} INFO - Done
+[00:30:41] {train_network.py:317} INFO - Beginning Epoch 00
+[00:30:46] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[00:30:46] {train_network.py:247} INFO - Loading Cornell Dataset...
+[00:30:46] {train_network.py:256} INFO - Dataset size is 885
+[00:30:46] {train_network.py:265} INFO - Training size: 796
+[00:30:46] {train_network.py:266} INFO - Validation size: 89
+[00:30:46] {train_network.py:284} INFO - Done
+[00:30:46] {train_network.py:287} INFO - Loading Network...
+[00:30:47] {train_network.py:298} INFO - Done
+[00:30:48] {train_network.py:317} INFO - Beginning Epoch 00

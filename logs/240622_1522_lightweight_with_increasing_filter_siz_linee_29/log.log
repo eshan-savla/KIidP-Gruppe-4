@@ -1,0 +1,17 @@
+[15:22:33] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[15:22:33] {train_network_increasing_filter_size.py:255} INFO - Loading Cornell Dataset...
+[15:22:33] {train_network_increasing_filter_size.py:264} INFO - Dataset size is 885
+[15:22:33] {train_network_increasing_filter_size.py:273} INFO - Training size: 796
+[15:22:33] {train_network_increasing_filter_size.py:274} INFO - Validation size: 89
+[15:22:33] {train_network_increasing_filter_size.py:292} INFO - Done
+[15:22:33] {train_network_increasing_filter_size.py:295} INFO - Loading Network...
+[15:22:34] {train_network_increasing_filter_size.py:308} INFO - Done
+[15:22:47] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 100, Loss: 0.0918
+[15:22:59] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 200, Loss: 0.0621
+[15:23:11] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 300, Loss: 0.0590
+[15:23:23] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 400, Loss: 0.1730
+[15:23:35] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 500, Loss: 0.0809
+[15:23:47] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 600, Loss: 0.0705
+[15:24:00] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 700, Loss: 0.0793
+[15:24:12] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 800, Loss: 0.0959
+[15:24:24] {train_network_increasing_filter_size.py:181} INFO - Epoch: 0, Batch: 900, Loss: 0.0478

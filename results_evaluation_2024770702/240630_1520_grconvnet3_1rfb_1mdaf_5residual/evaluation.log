@@ -1,0 +1,8 @@
+[10:58:01] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[10:58:01] {evaluate.py:109} INFO - Loading Cornell Dataset...
+[10:58:01] {evaluate.py:127} INFO - Validation size: 89
+[10:58:01] {evaluate.py:135} INFO - Done
+[10:58:01] {evaluate.py:138} INFO - 
+Evaluating model trained-models/GR_Convnet_Fix_Sunday/240630_1520_grconvnet3_1rfb_1mdaf_5residual/epoch_14_iou_0.98
+[10:58:44] {evaluate.py:210} INFO - Average evaluation time per image: 471.51163186919825ms
+[10:58:44] {evaluate.py:215} INFO - IOU Results: 64/89 = 0.719101

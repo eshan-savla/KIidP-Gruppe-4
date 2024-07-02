@@ -1,0 +1,20 @@
+[17:44:45] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[17:44:45] {train_network.py:247} INFO - Loading Cornell Dataset...
+[17:44:45] {train_network.py:256} INFO - Dataset size is 885
+[17:44:45] {train_network.py:265} INFO - Training size: 796
+[17:44:45] {train_network.py:266} INFO - Validation size: 89
+[17:44:45] {train_network.py:284} INFO - Done
+[17:44:45] {train_network.py:287} INFO - Loading Network...
+[17:44:46] {train_network.py:298} INFO - Done
+[17:44:47] {train_network.py:317} INFO - Beginning Epoch 00
+[17:45:02] {train_network.py:175} INFO - Epoch: 0, Batch: 100, Loss: 0.2227
+[17:45:17] {train_network.py:175} INFO - Epoch: 0, Batch: 200, Loss: 0.2052
+[17:45:32] {train_network.py:175} INFO - Epoch: 0, Batch: 300, Loss: 0.1278
+[17:45:48] {train_network.py:175} INFO - Epoch: 0, Batch: 400, Loss: 0.0944
+[17:46:03] {train_network.py:175} INFO - Epoch: 0, Batch: 500, Loss: 0.0674
+[17:46:19] {train_network.py:175} INFO - Epoch: 0, Batch: 600, Loss: 0.1491
+[17:46:34] {train_network.py:175} INFO - Epoch: 0, Batch: 700, Loss: 0.1117
+[17:46:49] {train_network.py:175} INFO - Epoch: 0, Batch: 800, Loss: 0.0523
+[17:47:05] {train_network.py:175} INFO - Epoch: 0, Batch: 900, Loss: 0.0374
+[17:47:22] {train_network.py:326} INFO - Validating...
+[17:47:25] {train_network.py:329} INFO - 44/89 = 0.494382

@@ -1,0 +1,14 @@
+[08:36:29] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[08:36:29] {evaluate.py:109} INFO - Loading Cornell Dataset...
+[08:36:29] {evaluate.py:127} INFO - Validation size: 89
+[08:36:29] {evaluate.py:135} INFO - Done
+[08:36:29] {evaluate.py:138} INFO - 
+Evaluating model trained-models/GR_Convnet_Fix_Sunday/240630_0953_grconvnet3_1mdaf/epoch_03_iou_0.96
+[10:53:58] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[10:53:58] {evaluate.py:109} INFO - Loading Cornell Dataset...
+[10:53:58] {evaluate.py:127} INFO - Validation size: 89
+[10:53:58] {evaluate.py:135} INFO - Done
+[10:53:58] {evaluate.py:138} INFO - 
+Evaluating model trained-models/GR_Convnet_Fix_Sunday/240630_0953_grconvnet3_1mdaf/epoch_03_iou_0.96
+[10:54:40] {evaluate.py:210} INFO - Average evaluation time per image: 462.0144661892666ms
+[10:54:40] {evaluate.py:215} INFO - IOU Results: 75/89 = 0.842697

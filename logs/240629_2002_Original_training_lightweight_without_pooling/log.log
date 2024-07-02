@@ -1,0 +1,9 @@
+[20:02:17] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[20:02:17] {train_network.py:247} INFO - Loading Cornell Dataset...
+[20:02:17] {train_network.py:256} INFO - Dataset size is 885
+[20:02:17] {train_network.py:265} INFO - Training size: 796
+[20:02:17] {train_network.py:266} INFO - Validation size: 89
+[20:02:17] {train_network.py:284} INFO - Done
+[20:02:17] {train_network.py:287} INFO - Loading Network...
+[20:02:18] {train_network.py:298} INFO - Done
+[20:02:19] {train_network.py:317} INFO - Beginning Epoch 00
