@@ -13,3 +13,5 @@ python evaluate.py --network trained-models/Lightweight_3_Lauf_fixed_channel_siz
 python evaluate.py --network trained-models/Lightweight_3_Lauf_fixed_channel_size/240701_0309_Original_training_lightweight_without_rfb/epoch_03_iou_0.57 --dataset cornell --dataset-path utils/data/cornell --iou-eval --vis --save-path 240701_0309_Original_training_lightweight_without_rfb
 python evaluate.py --network trained-models/Lightweight_3_Lauf_fixed_channel_size/240701_0400_lightweight_channelsize_64_with_only_1_mdaf/epoch_10_iou_0.96 --dataset cornell --dataset-path utils/data/cornell --iou-eval --vis --save-path 240701_0400_lightweight_channelsize_64_with_only_1_mdaf
 
+python evaluate.py --network trained-models/240626_0749_training_lightweight_channel_32/epoch_00_iou_0.51 --dataset cornell --dataset-path utils/data/cornell --iou-eval --vis --save-path 240626_0749_training_lightweight_channel_32
+
