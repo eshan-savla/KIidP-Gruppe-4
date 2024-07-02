@@ -1,0 +1,7 @@
+[14:13:07] {/workspace/KIidP-Gruppe-4/hardware/device.py:11} INFO - CUDA detected. Running with GPU acceleration.
+[14:13:07] {evaluate.py:109} INFO - Loading Graspnet Dataset...
+[14:13:07] {evaluate.py:127} INFO - Validation size: 26
+[14:13:07] {evaluate.py:135} INFO - Done
+[14:13:07] {evaluate.py:138} INFO - 
+Evaluating model trained-models/Lightweight_3_Lauf_fixed_channel_size/32Channel_size_240701_0554_Original_training_lightweight_with_only_1_mdaf/epoch_21_iou_0.98
+[14:13:32] {evaluate.py:210} INFO - Average evaluation time per image: 910.9259385329026ms
